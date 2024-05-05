@@ -1,0 +1,49 @@
+@use '../_base.scss';
+
+:root {
+	--size-to-x-ratio: 9;
+	--x: calc(var(--icon-size) / var(--size-to-x-ratio));
+	--stack-color: #f58025;
+	--holder-color: #bbb;
+}
+
+.stackoverflow {
+	display: flex;
+	place-content: center;
+	position: relative;
+	height: var(--icon-size);
+	aspect-ratio: 1 / 1;
+
+	.stack {
+		position: absolute;
+		bottom: calc(var(--x) * 2);
+		height: var(--x);
+		width: calc(100% - var(--x) * 4);
+		background: var(--stack-color);
+		transform-origin: calc(13 / 6 * 100%) 50%;
+
+		@for $i from 1 through 5 {
+			&:nth-child(#{$i}) {
+				rotate: 13deg * ($i - 1);
+			}
+		}
+	}
+
+	.holder {
+		position: absolute;
+		bottom: 0;
+		height: calc(var(--x) * 4);
+		width: 100%;
+		background: var(--holder-color);
+		clip-path: polygon(
+			0 0,
+			var(--x) 0,
+			var(--x) calc(100% - var(--x)),
+			calc(100% - var(--x)) calc(100% - var(--x)),
+			calc(100% - var(--x)) 0,
+			100% 0,
+			100% 100%,
+			0 100%
+		);
+	}
+}
