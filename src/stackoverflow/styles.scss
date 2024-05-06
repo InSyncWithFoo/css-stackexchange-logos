@@ -22,9 +22,9 @@
 		background: var(--stack-color);
 		transform-origin: calc(13 / 6 * 100%) 50%;
 
-		@for $i from 1 through 5 {
-			&:nth-child(#{$i}) {
-				rotate: 13deg * ($i - 1);
+		@for $index from 1 through 5 {
+			&:nth-child(#{$index}) {
+				rotate: 13deg * ($index - 1);
 			}
 		}
 	}

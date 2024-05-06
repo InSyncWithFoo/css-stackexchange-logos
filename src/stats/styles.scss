@@ -1,0 +1,40 @@
+@use '../_base.scss';
+
+:root {
+	--gap: 3%;
+	--line-height: calc((var(--icon-size) - 4 * var(--gap)) / 5);
+
+	--left-color: #358d9f;
+	--center-color: #6dc034;
+	--right-color: #037287;
+}
+
+.stats {
+	display: grid;
+	grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+	gap: var(--gap);
+	border-radius: calc(var(--line-height) * 2 + var(--gap)) 0;
+	height: var(--icon-size);
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+
+	@each $class in ('left', 'center', 'right') {
+		.#{$class} {
+			background: var(--#{$class}-color);
+		}
+	}
+
+	@for $index from 1 through 5 {
+		.left:nth-child(#{3 * $index - 2}) {
+			grid-column: 1 / #{-1 - $index};
+		}
+		.right:nth-child(#{3 * $index}) {
+			grid-column: #{-$index} / -1;
+		}
+	}
+
+	.left:nth-child(#{3 * 4 + 1}),
+	.right:nth-child(3) {
+		display: none;
+	}
+}
