@@ -1,6 +1,6 @@
-# CSS Stack Exchange icons
+# CSS Stack Exchange logos
 
-Stack Exchange icons, recreated using HTML and CSS.
+Stack Exchange sites' logos, recreated using HTML and CSS.
 
 
 The list of all sites can be found [here][1].
@@ -8,7 +8,7 @@ The list of all sites can be found [here][1].
 
 ## Legal notice
 
-The Stack Exchange sites' icons are copyrighted by Stack Exchange, Inc.
+The Stack Exchange sites' logos are copyrighted by Stack Exchange, Inc.
 Their usage in this project is governed by the [trademarks usage guidelines][2].
 
 This project is not associated with Stack Exchange, Inc in any way.

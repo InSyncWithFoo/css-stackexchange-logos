@@ -2,7 +2,7 @@
 
 :root {
 	--gap: 3%;
-	--line-height: calc((var(--icon-size) - 4 * var(--gap)) / 5);
+	--line-height: calc((var(--logo-size) - 4 * var(--gap)) / 5);
 
 	--left-color: #358d9f;
 	--center-color: #6dc034;
@@ -14,7 +14,7 @@
 	grid-template: repeat(5, 1fr) / repeat(5, 1fr);
 	gap: var(--gap);
 	border-radius: calc(var(--line-height) * 2 + var(--gap)) 0;
-	height: var(--icon-size);
+	height: var(--logo-size);
 	aspect-ratio: 1 / 1;
 	overflow: hidden;
 
