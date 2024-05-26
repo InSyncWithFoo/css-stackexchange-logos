@@ -1,0 +1,42 @@
+@use '../_base.scss';
+
+:root {
+	--background: #333;
+	
+	--column-to-gap-ratio: 5;
+	--size-to-gap-ratio: calc(var(--column-to-gap-ratio) * 4 + 3);
+}
+
+$row-colors: (
+	(#d1d2d4, #e8272c),
+	(#a7a9ac, #982123),
+	(#818285, #630f15),
+	(#58585a, #2c1414),
+	(#231f20, #050708)
+);
+
+.serverfault {
+	display: grid;
+	grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+	gap: calc(var(--logo-size) / var(--size-to-gap-ratio));
+	width: var(--logo-size);
+	aspect-ratio: 4 / 3;
+	
+	@for $index from 1 through 5 {
+		$row-side-and-center: nth($row-colors, $index);
+		$side: nth($row-side-and-center, 1);
+		$center: nth($row-side-and-center, 2);
+		
+		.left:nth-child(#{$index * 3 - 2}),
+		.right:nth-child(#{$index * 3}) {
+			background: #{$side};
+		}
+		.center:nth-child(#{$index * 3 - 1}) {
+			background: #{$center};
+		}
+	}
+	
+	.left {
+		grid-column: 1 / span 2;
+	}
+}

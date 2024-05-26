@@ -1,0 +1,35 @@
+@use '../_base.scss';
+
+:root {
+	--line-width: calc(var(--logo-size) / 16);
+}
+
+$class-to-length: (
+	'short': 1,
+	'medium': 2,
+	'long': 3,
+	'longest': 5
+);
+
+.dsp {
+	display: flex;
+	place-content: center;
+	place-items: center;
+	gap: var(--line-width);
+	border-radius: 50%;
+	height: var(--logo-size);
+	aspect-ratio: 1 / 1;
+	background: linear-gradient(90deg, #2b7fc3, #2db8c5);
+	
+	.line {
+		background: #fff;
+		width: var(--line-width);
+		border-radius: calc(var(--line-width) / 2);
+		
+		@each $class, $multiplier in $class-to-length {
+			&.#{$class} {
+				height: calc(15% * $multiplier);
+			}
+		}
+	}
+}
